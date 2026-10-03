@@ -1,79 +1,36 @@
-# Nikhil Kumar — Portfolio Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-> **Full-Stack Development & AI Exploration**  
-> Responsive, modern personal portfolio engineered with Next.js 16 (App Router), TypeScript, Tailwind CSS, and an intelligent portfolio-grounded AI assistant.
+## Getting Started
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=flat&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=flat&logo=tailwindcss)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
----
-
-## 🌟 Key Features
-
-- **Dark-First Theme & Visual Direction:** Deep ink/navy surfaces with electric cyan & blue accents, persistent system color-scheme detection, and manual toggle.
-- **Deep Case Studies (10-Point Technical Template):** In-depth architecture walkthroughs for:
-  - **KisanMitra:** Agricultural advisory & localized meteorological insights.
-  - **VGI Canteen System:** Decoupled digital ordering frontend and Node.js/Express cafeteria backend.
-  - **Real-Time Weather Web App:** Atmospheric conditions & GPS visualizer.
-  - **AOT Interactive:** High-performance web animation & fandom platform.
-  - **BMI Health Calculator:** Accessible health utility with WHO classifications.
-- **"Ask Nikhil AI" Assistant:**
-  - Interactive chat assistant grounded strictly in verified portfolio facts.
-  - Server-side route handler with rate-limiting and abuse protection.
-  - Built-in grounded matching fallback ensuring 100% functionality out-of-the-box without requiring third-party API keys.
-- **GitHub Live Sync:** Hybrid integration displaying live star counts, forks, and updated repositories for `@nikhil007-git` with cached server-side revalidation.
-- **Contact Form with Honeypot:** Server-validated contact form with anti-spam honeypot detection and direct mailto fallback.
-- **SEO & Accessibility:** Fully WCAG compliant, JSON-LD structured data, dynamic `sitemap.xml`, and `robots.txt`.
-
----
-
-## 🛠️ Tech Stack
-
-- **Framework:** Next.js 16 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4
-- **Icons & UI:** Lucide React, Custom Brand SVGs
-- **Deployment:** Vercel
-
----
-
-## 🚀 Getting Started
-
-### 1. Clone & Install
-
-```bash
-git clone https://github.com/nikhil007-git/portfolio.git
-cd portfolio
-npm install
-```
-
-### 2. Run Locally
+First, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### 3. Production Build
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```bash
-npm run build
-npm run start
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
----
+## Learn More
 
-## 📬 Contact & Profiles
+To learn more about Next.js, take a look at the following resources:
 
-- **Email:** [nikhil9508821695@gmail.com](mailto:nikhil9508821695@gmail.com)
-- **LinkedIn:** [nikhil-kumar-0n7](https://linkedin.com/in/nikhil-kumar-0n7)
-- **LeetCode:** [Nikhil_kumar_10](https://leetcode.com/u/Nikhil_kumar_10/)
-- **GeeksforGeeks:** [nikhil950qj4g](https://www.geeksforgeeks.org/profile/nikhil950qj4g)
-- **GitHub:** [@nikhil007-git](https://github.com/nikhil007-git) & [@nikhilkumar95f](https://github.com/nikhilkumar95f)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-Developed by **Nikhil Kumar** • B.Tech CSE (Class of 2029), Vishveshwarya Group of Institutions (VGI), Greater Noida.
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
