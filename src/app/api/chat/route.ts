@@ -2,13 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { AI_SYSTEM_PROMPT, FALLBACK_FAQ } from '@/lib/ai-grounding';
 import { portfolioData } from '@/content/portfolioData';
 
-// Simple in-memory rate limiter: max 10 requests per minute per IP
+// Simple in-memory rate limiter: max 15 requests per minute per IP
 const ipRequests = new Map<string, { count: number; resetTime: number }>();
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const windowMs = 60 * 1000;
-  const maxRequests = 12;
+  const maxRequests = 15;
 
   const record = ipRequests.get(ip);
   if (!record || now > record.resetTime) {
@@ -51,10 +51,24 @@ export async function POST(req: NextRequest) {
     }
 
     const lowerQuery = query.toLowerCase();
+    const tokens = lowerQuery.split(/[\s,?.!;:()]+/).filter(Boolean);
 
-    // Check if an external Gemini API key is configured
+    // 1. Direct greeting check
+    const greetings = ['hi', 'hello', 'hey', 'greetings', 'sup', 'hola'];
+    if (tokens.some((t: string) => greetings.includes(t)) && tokens.length <= 4) {
+      const greetingAnswer = FALLBACK_FAQ.find((f) => f.keywords.includes('hi'))?.answer;
+      if (greetingAnswer) {
+        return NextResponse.json({
+          reply: greetingAnswer,
+          grounded: true,
+          source: 'portfolio-grounded-kb'
+        });
+      }
+    }
+
+    // 2. Check if a valid Google AI Studio Gemini API key is configured (starts with AIzaSy)
     const apiKey = process.env.GEMINI_API_KEY;
-    if (apiKey) {
+    if (apiKey && apiKey.startsWith('AIzaSy')) {
       try {
         const response = await fetch(
           `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
@@ -95,14 +109,18 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Grounded deterministic matcher based on published portfolio facts
+    // 3. Grounded deterministic matcher based on published portfolio facts
     let bestMatch: { score: number; answer: string } = { score: 0, answer: '' };
 
     for (const item of FALLBACK_FAQ) {
       let score = 0;
       for (const kw of item.keywords) {
-        if (lowerQuery.includes(kw)) {
-          score += kw.length >= 6 ? 5 : kw.length >= 4 ? 3 : 1;
+        if (kw.includes(' ')) {
+          if (lowerQuery.includes(kw)) {
+            score += 10;
+          }
+        } else if (tokens.includes(kw) || lowerQuery.includes(kw)) {
+          score += kw.length >= 6 ? 6 : kw.length >= 4 ? 4 : 2;
         }
       }
       if (score > bestMatch.score) {
@@ -119,7 +137,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Default polite safe answer when no exact match is found
-    const defaultResponse = `I want to make sure you get accurate information about Nikhil! While I don't see a specific answer to that in his published portfolio, Nikhil is always happy to connect.\n\n• Email: ${portfolioData.email}\n• LinkedIn: https://linkedin.com/in/nikhil-kumar-0n7\n• GitHub: https://github.com/nikhil007-git\n\nFeel free to explore his featured projects like KisanMitra and VGI Canteen in the projects section!`;
+    const defaultResponse = `I want to make sure you get accurate information about Nikhil! While I don't have a specific pre-indexed fact for that exact question, here are quick details:\n\n• **Education:** Class X (2023), Class XII (2025), and B.Tech CSE (2025–2029) at VGI Greater Noida.\n• **Key Projects:** KisanMitra, VGI Canteen System, Real-Time Weather App.\n• **Contact Directly:** ${portfolioData.email} or [LinkedIn](${portfolioData.socials.find(s => s.platform === 'linkedin')?.url}).\n\nFeel free to ask about his tech stack, college, or featured projects!`;
 
     return NextResponse.json({
       reply: defaultResponse,

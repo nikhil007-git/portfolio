@@ -45,52 +45,72 @@ export interface FallbackAnswer {
 
 export const FALLBACK_FAQ: FallbackAnswer[] = [
   {
-    keywords: ['who is', 'overview', 'introduce', 'background', 'profile'],
-    answer: `Nikhil Kumar is a Full-Stack Developer and B.Tech Computer Science & Engineering student at Vishveshwarya Group of Institutions (VGI), Greater Noida (Class of 2029). He focuses on full-stack web engineering with React, Next.js, Node.js, and exploring practical AI integrations.`
+    keywords: ['hi', 'hello', 'hey', 'greetings', 'good morning', 'good afternoon', 'good evening', 'start'],
+    answer: `Hello! 👋 I am **Ask Nikhil AI**, an assistant grounded in Nikhil Kumar's verified portfolio. You can ask me about his tech stack (React, Next.js, Node.js), featured projects (KisanMitra, VGI Canteen), education (10th in 2023, 12th in 2025, B.Tech CSE 2025-2029 at VGI), or how to contact him. How can I help you today?`
   },
   {
-    keywords: ['skill', 'stack', 'tech', 'technologies', 'languages', 'react', 'next', 'python', 'frontend', 'backend'],
-    answer: `Nikhil's core technical stack includes:\n• Frontend: React, Next.js, JavaScript (ES6+), Tailwind CSS, HTML5, CSS3, TypeScript\n• Backend: Node.js, Express.js, REST APIs\n• Languages: Python, Java, C/C++, JavaScript\n• Databases: MySQL, MongoDB\n• Tools: Git, GitHub, Postman, VS Code, Vercel\n• AI/ML: Exploring LLM API integration, prompt engineering, and RAG concepts.`
+    keywords: ['who are you', 'what are you', 'your name', 'about yourself', 'what can you do'],
+    answer: `I am **Ask Nikhil AI**, an AI assistant built specifically for Nikhil Kumar's personal portfolio. I can answer questions about his engineering projects, technical stack, problem-solving journey, education, and contact links.`
   },
   {
-    keywords: ['kisanmitra', 'farmer', 'agriculture', 'weather'],
-    answer: `KisanMitra is Nikhil's agricultural support platform built with React, Node.js, Express, and MongoDB. It connects farmers with localized weather forecasts, advisory tips for irrigation/harvest, and a direct query submission module. You can check the repository at: https://github.com/nikhil007-git/KisanMitra`
+    keywords: ['who is nikhil', 'about nikhil', 'tell me about nikhil', 'overview', 'introduce', 'background', 'bio', 'profile'],
+    answer: `Nikhil Kumar is a Full-Stack Developer and B.Tech Computer Science & Engineering student at Vishveshwarya Group of Institutions (VGI), Greater Noida (Class of 2029). He completed Class X in 2023 and Class XII (Science/PCM) in 2025.\n\nHe specializes in building scalable web applications with React, Next.js, Node.js, Express, and MongoDB, while actively exploring modern AI workflows and practicing algorithmic problem solving on LeetCode.`
   },
   {
-    keywords: ['canteen', 'vgi', 'food', 'order'],
-    answer: `The VGI Canteen System is a full-stack campus food ordering portal designed for Vishveshwarya Group of Institutions. Built with a decoupled React + Tailwind frontend and an Express + MongoDB backend, it enables students to order meals, track live queues, and receive digital pickup tokens, reducing cafeteria wait times.`
+    keywords: ['education', 'college', 'university', 'study', 'studied', 'degree', 'vgi', 'graduation', '10th', '12th', 'school', 'matriculation', 'intermediate', 'class 10', 'class 12'],
+    answer: `Nikhil's verified academic trajectory:\n• **Class X (Secondary School):** Completed in 2023 with core focus on mathematics and science.\n• **Class XII (Senior Secondary):** Completed in 2025 in the Science (PCM) stream.\n• **B.Tech in Computer Science & Engineering:** Vishveshwarya Group of Institutions (VGI), Greater Noida (2025 – 2029, currently in progress).`
   },
   {
-    keywords: ['weather', 'forecast'],
-    answer: `Nikhil created a Real-Time Weather Web App featuring HTML5 Geolocation, live atmospheric metrics (humidity, pressure, wind vectors), and dynamic condition-adaptive UI backgrounds. Repository: https://github.com/nikhil007-git/Weather-Application`
+    keywords: ['skill', 'stack', 'tech', 'technologies', 'languages', 'react', 'next', 'python', 'frontend', 'backend', 'node', 'express', 'mongodb', 'mysql', 'javascript', 'typescript', 'java', 'c++'],
+    answer: `Nikhil's technical stack includes:\n• **Frontend:** React, Next.js, JavaScript (ES6+), Tailwind CSS, HTML5, CSS3, TypeScript\n• **Backend:** Node.js, Express.js, REST API architecture\n• **Programming Languages:** Python, Java, C/C++, JavaScript\n• **Databases:** MongoDB, MySQL\n• **Tools & Platforms:** Git, GitHub, Postman, VS Code, Vercel\n• **AI/ML (Active Learning):** LLM integration, prompt engineering, and RAG concepts.`
   },
   {
-    keywords: ['project', 'projects', 'work', 'built', 'portfolio'],
-    answer: `Nikhil has built several key engineering projects:\n1. KisanMitra (Agricultural advisory & weather support platform)\n2. VGI Canteen System (Decoupled campus cafeteria ordering system)\n3. Real-Time Weather Web App (Dynamic meteorological visualizer)\n4. AOT Interactive Experience (High-performance web animation showcase)\n5. BMI Health Calculator (Accessible health utility with WHO scales)\nExplore the 'Projects' section for complete case studies!`
+    keywords: ['kisanmitra', 'farmer', 'agriculture'],
+    answer: `**KisanMitra** is Nikhil's agricultural support platform built using React, Node.js, Express, and MongoDB. It provides smallholder farmers with localized meteorological advisories, crop health recommendations, and a direct inquiry module.\n• Repository: https://github.com/nikhil007-git/KisanMitra`
   },
   {
-    keywords: ['education', 'college', 'university', 'study', 'degree', 'vgi', 'graduation', '10th', '12th', 'school', 'matriculation', 'intermediate'],
-    answer: `Nikhil's academic progression includes:\n• Class X (Secondary School): Completed in 2023\n• Class XII (Senior Secondary - Science / PCM): Completed in 2025\n• B.Tech in Computer Science & Engineering: Vishveshwarya Group of Institutions (VGI), Greater Noida (2025–2029, currently in progress).`
+    keywords: ['canteen', 'vgi canteen', 'food ordering', 'cafeteria'],
+    answer: `The **VGI Canteen System** is a full-stack campus cafeteria ordering portal created for Vishveshwarya Group of Institutions. Built with a decoupled React + Tailwind client and an Express + MongoDB backend, it features live order queue tracking and digital pickup tokens to minimize peak lunch hour queues.\n• Frontend: https://github.com/nikhil007-git/VGI-Canteen-frontend\n• Backend: https://github.com/nikhil007-git/VGI-Canteen-backend`
   },
   {
-    keywords: ['contact', 'email', 'hire', 'reach', 'message', 'internship', 'freelance'],
-    answer: `You can reach Nikhil directly via:\n• Email: nikhil9508821695@gmail.com\n• LinkedIn: https://linkedin.com/in/nikhil-kumar-0n7\n• GitHub: https://github.com/nikhil007-git\nHe is currently open to summer internships and freelance collaborations!`
+    keywords: ['weather', 'weather app', 'forecast'],
+    answer: `Nikhil built a **Real-Time Weather Web App** featuring HTML5 Geolocation, live atmospheric metrics (humidity, pressure, wind vectors), and dynamic condition-adaptive UI backgrounds based on ambient weather.\n• Repository: https://github.com/nikhil007-git/Weather-Application`
   },
   {
-    keywords: ['github', 'repo', 'repositories', 'code'],
-    answer: `Nikhil actively maintains two GitHub accounts:\n• Primary: https://github.com/nikhil007-git\n• Secondary: https://github.com/nikhilkumar95f\nTake a look at his repositories including KisanMitra, VGI Canteen, and Weather Application.`
+    keywords: ['aot', 'attack on titan'],
+    answer: `**AOT (Attack on Titan Interactive)** is an immersive web fandom experience showcasing high-performance CSS keyframe animations, audio synchronization, and responsive interactive character lore cards.\n• Repository: https://github.com/nikhil007-git/AOT`
   },
   {
-    keywords: ['leetcode', 'dsa', 'geeksforgeeks', 'problem solving', 'gfg'],
-    answer: `Nikhil regularly practices data structures and algorithmic problem solving on:\n• LeetCode: https://leetcode.com/u/Nikhil_kumar_10/\n• GeeksforGeeks: https://www.geeksforgeeks.org/profile/nikhil950qj4g`
+    keywords: ['bmi', 'calculator', 'health'],
+    answer: `The **BMI Health Calculator** is a clean, accessible health utility supporting Metric and Imperial units, real-time WHO classification gauges, and ideal healthy weight estimates.\n• Repository: https://github.com/nikhil007-git/bmi_cal`
   },
   {
-    keywords: ['resume', 'cv'],
-    answer: `You can review and download Nikhil's resume directly via the 'Resume' button in the navigation bar and hero section of this portfolio!`
+    keywords: ['project', 'projects', 'work', 'built', 'portfolio', 'apps'],
+    answer: `Nikhil's core engineering projects include:\n1. **KisanMitra:** Agricultural advisory platform with real-time weather integration.\n2. **VGI Canteen System:** Decoupled campus cafeteria ordering system with live queue tracking.\n3. **Real-Time Weather Web App:** Atmospheric visualizer adapting to live meteorological conditions.\n4. **AOT Interactive:** 60fps web animation and media experience.\n5. **BMI Health Calculator:** Accessible health utility with WHO scales.\n\nYou can click on any project card on this site to open its complete 10-point technical case study!`
   },
   {
-    keywords: ['ai', 'exploring', 'learning', 'future'],
-    answer: `Nikhil is currently exploring Next.js 15 Server Components & Server Actions, Agentic AI workflows with multi-step reasoning, Retrieval-Augmented Generation (RAG), and backend system design optimization.`
+    keywords: ['contact', 'email', 'hire', 'reach', 'message', 'internship', 'freelance', 'talk', 'connect', 'phone'],
+    answer: `You can reach Nikhil directly through:\n• **Email:** nikhil9508821695@gmail.com\n• **LinkedIn:** https://linkedin.com/in/nikhil-kumar-0n7\n• **GitHub:** https://github.com/nikhil007-git\n• **Contact Form:** Use the contact form at the bottom of this portfolio.\n\nHe is currently open to Summer Internships and Freelance collaborations!`
+  },
+  {
+    keywords: ['github', 'repo', 'repositories', 'code', 'git'],
+    answer: `Nikhil maintains two GitHub profiles:\n• **Primary:** https://github.com/nikhil007-git\n• **Secondary:** https://github.com/nikhilkumar95f\nCheck out repositories including KisanMitra, VGI Canteen, and Weather Application.`
+  },
+  {
+    keywords: ['leetcode', 'dsa', 'geeksforgeeks', 'problem solving', 'gfg', 'coding profile'],
+    answer: `Nikhil actively solves data structures and algorithmic problems on:\n• **LeetCode:** https://leetcode.com/u/Nikhil_kumar_10/\n• **GeeksforGeeks:** https://www.geeksforgeeks.org/profile/nikhil950qj4g`
+  },
+  {
+    keywords: ['resume', 'cv', 'download resume'],
+    answer: `You can review and download Nikhil's resume directly via the **Resume** button in the top navigation bar or the Hero section of this site!`
+  },
+  {
+    keywords: ['location', 'where', 'city', 'address', 'based'],
+    answer: `Nikhil is located in **Greater Noida, Uttar Pradesh, India**, and is available for both remote and on-site internship opportunities.`
+  },
+  {
+    keywords: ['ai', 'exploring', 'learning', 'future', 'rag', 'llm'],
+    answer: `Nikhil is currently deepening his knowledge in:\n• Next.js 15 Server Components & Server Actions\n• Agentic AI workflows and Retrieval-Augmented Generation (RAG)\n• System Design, Database Indexing, and Caching (Redis/PostgreSQL).`
   }
 ];
 

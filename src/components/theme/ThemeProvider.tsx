@@ -10,13 +10,13 @@ interface ThemeContextType {
   setTheme: (theme: Theme) => void;
 }
 
-const defaultContext: ThemeContextType = {
+const defaultThemeContext: ThemeContextType = {
   theme: 'dark',
   toggleTheme: () => {},
   setTheme: () => {}
 };
 
-const ThemeContext = createContext<ThemeContextType>(defaultContext);
+const ThemeContext = createContext<ThemeContextType>(defaultThemeContext);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('dark');
@@ -57,5 +57,5 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-  return context || defaultContext;
+  return context || defaultThemeContext;
 }
