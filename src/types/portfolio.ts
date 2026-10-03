@@ -45,6 +45,14 @@ export interface Project {
   caseStudy: ProjectDetail;
 }
 
+export interface AcademicLevel {
+  level: string;
+  year: number | string;
+  institution?: string;
+  streamOrFocus?: string;
+  description?: string;
+}
+
 export interface EducationItem {
   degree: string;
   field: string;
@@ -54,6 +62,7 @@ export interface EducationItem {
   expectedGraduation: number;
   highlights: string[];
   relevantCoursework: string[];
+  levels?: AcademicLevel[];
 }
 
 export interface Milestone {

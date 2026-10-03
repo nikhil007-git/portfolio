@@ -31,6 +31,27 @@ export const portfolioData: ProfileData = {
       'Database Management Systems',
       'Web Development Fundamentals',
       'Operating Systems & Networks Foundations'
+    ],
+    levels: [
+      {
+        level: 'Class X (Secondary School)',
+        year: '2023',
+        streamOrFocus: 'Foundational Sciences & Mathematics',
+        description: 'Completed secondary school board examinations with solid analytical and quantitative footing.'
+      },
+      {
+        level: 'Class XII (Senior Secondary)',
+        year: '2025',
+        streamOrFocus: 'Science (PCM / Computer Science)',
+        description: 'Completed senior secondary schooling building core proficiency in mathematics, physics, and computer science basics.'
+      },
+      {
+        level: 'B.Tech in Computer Science & Engineering',
+        year: '2025 – 2029',
+        institution: 'Vishveshwarya Group of Institutions (VGI), Greater Noida',
+        streamOrFocus: 'Full-Stack Software Engineering & Computer Systems',
+        description: 'Undergraduate engineering studies specializing in software development, data structures, and emerging AI applications.'
+      }
     ]
   },
   socials: [
@@ -370,11 +391,25 @@ export const portfolioData: ProfileData = {
   ],
   milestones: [
     {
+      period: '2023',
+      title: 'Completed Class X (Secondary Education)',
+      subtitle: 'Strong Foundational Base in Mathematics & Science',
+      description: 'Graduated secondary school with focused discipline in analytical problem solving and scientific inquiry.',
+      badge: 'Academic Foundation'
+    },
+    {
+      period: '2025',
+      title: 'Completed Class XII (Senior Secondary)',
+      subtitle: 'Science & Mathematics Stream (PCM)',
+      description: 'Completed senior secondary schooling, solidifying interest in computing, logic, and modern programming.',
+      badge: 'Senior Secondary'
+    },
+    {
       period: '2025 - Present',
       title: 'B.Tech in Computer Science & Engineering',
       subtitle: 'Vishveshwarya Group of Institutions (VGI), Greater Noida',
       description: 'Commenced undergraduate engineering studies focusing on computer science fundamentals, data structures, algorithms, and collaborative software projects.',
-      badge: 'Academic Journey'
+      badge: 'Current Degree'
     },
     {
       period: '2025 - 2026',

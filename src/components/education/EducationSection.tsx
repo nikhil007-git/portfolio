@@ -64,6 +64,35 @@ export function EducationSection() {
                   </div>
                 ))}
               </div>
+
+              {/* Academic Progression: 10th & 12th */}
+              {education.levels && (
+                <div className="space-y-2 mb-6 pt-4 border-t border-slate-800/60 light:border-slate-100">
+                  <h4 className="text-xs font-mono uppercase text-slate-400 font-semibold mb-2">
+                    Academic Qualifications & Progression
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {education.levels.slice(0, 2).map((lvl, idx) => (
+                      <div
+                        key={idx}
+                        className="p-3 rounded-xl bg-slate-950/40 dark:bg-slate-950/40 light:bg-slate-50 border border-slate-800/60 light:border-slate-200"
+                      >
+                        <div className="flex items-center justify-between gap-1 mb-1">
+                          <span className="font-semibold text-xs text-slate-200 dark:text-slate-200 light:text-slate-900">
+                            {lvl.level}
+                          </span>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                            {lvl.year}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 dark:text-slate-400 light:text-slate-600">
+                          {lvl.streamOrFocus}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Coursework */}

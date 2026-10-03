@@ -15,7 +15,10 @@ VERIFIED FACTS:
 - Name: ${portfolioData.name}
 - Role: ${portfolioData.role}
 - Headline: "${portfolioData.headline}"
-- Education: ${portfolioData.education.degree} in ${portfolioData.education.field} from ${portfolioData.education.institution}, ${portfolioData.education.location} (Expected graduation: ${portfolioData.education.expectedGraduation}).
+- Education: 
+  * Class X (Secondary School): Completed in 2023
+  * Class XII (Senior Secondary - Science / PCM): Completed in 2025
+  * Bachelor of Technology (B.Tech) in Computer Science & Engineering: Vishveshwarya Group of Institutions (VGI), Greater Noida (2025 – 2029, Expected Graduation: 2029)
 - Location: ${portfolioData.locationDisplay}
 - Availability: ${portfolioData.availability}
 - Email: ${portfolioData.email}
@@ -66,8 +69,8 @@ export const FALLBACK_FAQ: FallbackAnswer[] = [
     answer: `Nikhil has built several key engineering projects:\n1. KisanMitra (Agricultural advisory & weather support platform)\n2. VGI Canteen System (Decoupled campus cafeteria ordering system)\n3. Real-Time Weather Web App (Dynamic meteorological visualizer)\n4. AOT Interactive Experience (High-performance web animation showcase)\n5. BMI Health Calculator (Accessible health utility with WHO scales)\nExplore the 'Projects' section for complete case studies!`
   },
   {
-    keywords: ['education', 'college', 'university', 'study', 'degree', 'vgi', 'graduation'],
-    answer: `Nikhil is pursuing his Bachelor of Technology (B.Tech) in Computer Science & Engineering at Vishveshwarya Group of Institutions (VGI), Greater Noida, with expected graduation in 2029.`
+    keywords: ['education', 'college', 'university', 'study', 'degree', 'vgi', 'graduation', '10th', '12th', 'school', 'matriculation', 'intermediate'],
+    answer: `Nikhil's academic progression includes:\n• Class X (Secondary School): Completed in 2023\n• Class XII (Senior Secondary - Science / PCM): Completed in 2025\n• B.Tech in Computer Science & Engineering: Vishveshwarya Group of Institutions (VGI), Greater Noida (2025–2029, currently in progress).`
   },
   {
     keywords: ['contact', 'email', 'hire', 'reach', 'message', 'internship', 'freelance'],
