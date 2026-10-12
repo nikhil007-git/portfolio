@@ -36,17 +36,10 @@ export const portfolioData: ProfileData = {
   socials: [
     {
       platform: 'github',
-      label: 'GitHub (Primary)',
+      label: 'GitHub',
       url: 'https://github.com/nikhil007-git',
       username: 'nikhil007-git',
       primary: true
-    },
-    {
-      platform: 'github',
-      label: 'GitHub (Secondary)',
-      url: 'https://github.com/nikhilkumar95f',
-      username: 'nikhilkumar95f',
-      primary: false
     },
     {
       platform: 'linkedin',
@@ -208,8 +201,8 @@ export const portfolioData: ProfileData = {
       category: 'Full-Stack',
       featured: true,
       tags: ['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Full-Stack Architecture'],
-      githubUrl: 'https://github.com/nikhil007-git/VGI-Canteen-frontend',
-      githubUrlSecondary: 'https://github.com/nikhil007-git/VGI-Canteen-backend',
+      githubUrl: 'https://github.com/nikhil007-git/Vgi-canteen-frontend',
+      githubUrlSecondary: 'https://github.com/nikhil007-git/Vgi-canteen-backend',
       highlights: [
         'Dual-repository decoupled architecture separating student client from backend API.',
         'Live order queue state management and digital token generation.',
@@ -245,43 +238,45 @@ export const portfolioData: ProfileData = {
       }
     },
     {
-      id: 'weather-application',
-      title: 'Real-Time Weather Web App',
-      subtitle: 'Atmospheric Metrics & Forecast Visualizer',
-      description: 'A dynamic meteorological web application that delivers real-time weather metrics, multi-day forecasting, and dynamic atmospheric UI transitions based on live conditions.',
-      category: 'Frontend',
+      id: 'leaderboard-system',
+      title: 'Full-Stack LeaderBoard Platform',
+      subtitle: 'Dynamic Score Tracking & Competitive Analytics',
+      description: 'A responsive full-stack scoring and competitive ranking platform with real-time score updates, responsive data tables, and secure Node.js/Express REST API endpoints.',
+      category: 'Full-Stack',
       featured: true,
-      tags: ['JavaScript', 'Weather API', 'CSS Grid', 'Geolocation', 'Responsive Design'],
-      githubUrl: 'https://github.com/nikhil007-git/Weather-Application',
+      tags: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB'],
+      githubUrl: 'https://github.com/nikhil007-git/LeaderBoard_Frontend',
+      githubUrlSecondary: 'https://github.com/nikhil007-git/LeaderBoard_Backend',
       highlights: [
-        'Dynamic contextual backgrounds adapting to rainfall, sunshine, and night states.',
-        'Browser Geolocation API integration for seamless instant local forecast detection.',
-        'Comprehensive breakdown: humidity, wind speed, UV index, and atmospheric pressure.'
+        'Dual-repository full-stack architecture with decoupled Vite frontend and Express API backend.',
+        'Dynamic ranking computation with real-time score adjustments and responsive data tables.',
+        'MongoDB data models for player profiles, competitive scores, and audit logging.'
       ],
       caseStudy: {
-        contextProblem: 'Many standard weather apps are weighed down by heavy ad scripts and slow page weight, delaying simple weather lookups.',
+        contextProblem: 'Manual score keeping and static leaderboards create delays, human scoring errors, and poor real-time engagement in competitive campus contests.',
         goals: [
-          'Build a lightweight, lightning-fast weather dashboard that loads in under 1 second.',
-          'Implement fluid visual status cues reflecting current weather parameters.',
-          'Support both global city searches and one-click GPS coordinate lookups.'
+          'Build an instant, responsive leaderboard interface with live position recalculation.',
+          'Create secure, validated REST API endpoints for score submissions and audit logging.',
+          'Ensure seamless viewing across mobile devices and large external display monitors.'
         ],
-        roleContribution: 'Solo developer — built complete frontend interface, asynchronous API ingestion, and condition-based theme switching.',
-        approachArchitecture: 'Pure client-side single page app consuming OpenWeather/Weather API endpoints with asynchronous fetch handling, data transformation, and responsive CSS Grid presentation.',
+        roleContribution: 'Full-Stack Engineer — architected both the Frontend (Vite/React/Tailwind) and Backend (Express/Node.js/MongoDB) repositories, designing the scoring algorithms and database schema.',
+        approachArchitecture: 'Client-server separation with high-performance Vite frontend querying a dedicated Express REST API with MongoDB aggregation for rank sorting.',
         keyFeatures: [
-          'Instant GPS-based weather lookup via HTML5 Geolocation API.',
-          'Global city search with input debouncing and query history.',
-          'Detailed atmospheric metrics grid (visibility, pressure, dew point, wind vectors).',
-          'Responsive design adapting gracefully from 320px screens to 4K displays.'
+          'Real-time rank sorting and position movement indicators.',
+          'Searchable and filterable participant rankings with pagination.',
+          'Protected API endpoints for authorized score updates.',
+          'Responsive high-contrast UI tailored for stage displays and personal devices.'
         ],
         techChoices: [
-          { tech: 'Modern Vanilla JS / React', reason: 'Minimized runtime overhead for maximum client responsiveness.' },
-          { tech: 'CSS Custom Properties', reason: 'Fast programmatic theme swaps corresponding to diurnal and weather states.' }
+          { tech: 'Vite & React', reason: 'Lightning-fast bundle load times and instant UI updates during high-frequency score changes.' },
+          { tech: 'Tailwind CSS', reason: 'Clean typography, responsive grid layout, and accessible color hierarchy.' },
+          { tech: 'Node.js & MongoDB', reason: 'Flexible document modeling and efficient aggregation pipelines for sorting user ranks.' }
         ],
-        challengesLearning: 'Handling asynchronous rate limits and normalizing varied error codes returned by external weather APIs when invalid city names were searched.',
-        outcome: 'Clean, reliable utility deployed on GitHub Pages with instant load performance.',
+        challengesLearning: 'Ensuring atomic score updates and avoiding race conditions during concurrent user submissions.',
+        outcome: 'Production-ready dual-repository full-stack application active on GitHub.',
         futureImprovements: [
-          'Add 7-day hourly temperature trend graphs using Chart.js.',
-          'Add severe weather push notification simulation.'
+          'Integrate WebSockets for instant live pushes without polling.',
+          'Add historical performance graphs and seasonal archive boards.'
         ]
       }
     },

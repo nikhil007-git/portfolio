@@ -20,8 +20,7 @@ VERIFIED FACTS:
 - Availability: ${portfolioData.availability}
 - Email: ${portfolioData.email}
 - Key Links:
-  * Primary GitHub: https://github.com/nikhil007-git
-  * Secondary GitHub: https://github.com/nikhilkumar95f
+  * GitHub: https://github.com/nikhil007-git
   * LinkedIn: https://linkedin.com/in/nikhil-kumar-0n7
   * LeetCode: https://leetcode.com/u/Nikhil_kumar_10/
   * GeeksforGeeks: https://www.geeksforgeeks.org/profile/nikhil950qj4g
@@ -58,12 +57,12 @@ export const FALLBACK_FAQ: FallbackAnswer[] = [
     answer: `The VGI Canteen System is a full-stack campus food ordering portal designed for Vishveshwarya Group of Institutions. Built with a decoupled React + Tailwind frontend and an Express + MongoDB backend, it enables students to order meals, track live queues, and receive digital pickup tokens, reducing cafeteria wait times.`
   },
   {
-    keywords: ['weather', 'forecast'],
-    answer: `Nikhil created a Real-Time Weather Web App featuring HTML5 Geolocation, live atmospheric metrics (humidity, pressure, wind vectors), and dynamic condition-adaptive UI backgrounds. Repository: https://github.com/nikhil007-git/Weather-Application`
+    keywords: ['leaderboard', 'rank', 'contest', 'scoring'],
+    answer: `The Full-Stack LeaderBoard Platform is Nikhil's dynamic competitive scoring system built with React, Vite, Tailwind CSS, Node.js, Express, and MongoDB. It provides real-time ranking adjustments and data models for participants. Repositories: https://github.com/nikhil007-git/LeaderBoard_Frontend and https://github.com/nikhil007-git/LeaderBoard_Backend`
   },
   {
     keywords: ['project', 'projects', 'work', 'built', 'portfolio'],
-    answer: `Nikhil has built several key engineering projects:\n1. KisanMitra (Agricultural advisory & weather support platform)\n2. VGI Canteen System (Decoupled campus cafeteria ordering system)\n3. Real-Time Weather Web App (Dynamic meteorological visualizer)\n4. AOT Interactive Experience (High-performance web animation showcase)\n5. BMI Health Calculator (Accessible health utility with WHO scales)\nExplore the 'Projects' section for complete case studies!`
+    answer: `Nikhil has built several key engineering projects on his GitHub (https://github.com/nikhil007-git):\n1. KisanMitra (Agricultural advisory & farmer support platform)\n2. VGI Canteen System (Decoupled campus cafeteria ordering system)\n3. Full-Stack LeaderBoard Platform (Dynamic score tracking & competitive ranking)\n4. AOT Interactive Experience (High-performance web animation tribute)\n5. BMI Health Calculator (Accessible health utility with WHO scales)\nExplore the 'Projects' section for complete case studies!`
   },
   {
     keywords: ['education', 'college', 'university', 'study', 'degree', 'vgi', 'graduation'],
@@ -75,7 +74,7 @@ export const FALLBACK_FAQ: FallbackAnswer[] = [
   },
   {
     keywords: ['github', 'repo', 'repositories', 'code'],
-    answer: `Nikhil actively maintains two GitHub accounts:\n• Primary: https://github.com/nikhil007-git\n• Secondary: https://github.com/nikhilkumar95f\nTake a look at his repositories including KisanMitra, VGI Canteen, and Weather Application.`
+    answer: `Nikhil's official GitHub account is https://github.com/nikhil007-git where all his repositories and projects are hosted, including KisanMitra, VGI Canteen, Full-Stack LeaderBoard, and web utilities.`
   },
   {
     keywords: ['leetcode', 'dsa', 'geeksforgeeks', 'problem solving', 'gfg'],

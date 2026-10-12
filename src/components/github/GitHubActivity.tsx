@@ -64,17 +64,6 @@ export function GitHubActivity() {
               <span>@nikhil007-git</span>
               <ExternalLink className="w-3 h-3 text-slate-400" />
             </a>
-
-            <a
-              href="https://github.com/nikhilkumar95f"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700 transition-colors"
-            >
-              <GithubIcon className="w-3.5 h-3.5" />
-              <span>@nikhilkumar95f</span>
-              <ExternalLink className="w-3 h-3 text-slate-400" />
-            </a>
           </div>
         </div>
 
