@@ -159,6 +159,7 @@ export const portfolioData: ProfileData = {
       featured: true,
       tags: ['React', 'Node.js', 'Express', 'MongoDB', 'REST API', 'Weather Integration'],
       githubUrl: 'https://github.com/nikhil007-git/KisanMitra',
+      demoUrl: 'https://kisan-mitra-brown.vercel.app',
       highlights: [
         'Accessible, multi-device interface tailored for agricultural workflows.',
         'Real-time weather data integration with advisory tips for irrigation and harvest timing.',
@@ -203,6 +204,7 @@ export const portfolioData: ProfileData = {
       tags: ['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Full-Stack Architecture'],
       githubUrl: 'https://github.com/nikhil007-git/Vgi-canteen-frontend',
       githubUrlSecondary: 'https://github.com/nikhil007-git/Vgi-canteen-backend',
+      demoUrl: 'https://vgi-canteen-frontend.vercel.app',
       highlights: [
         'Dual-repository decoupled architecture separating student client from backend API.',
         'Live order queue state management and digital token generation.',
@@ -247,6 +249,7 @@ export const portfolioData: ProfileData = {
       tags: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB'],
       githubUrl: 'https://github.com/nikhil007-git/LeaderBoard_Frontend',
       githubUrlSecondary: 'https://github.com/nikhil007-git/LeaderBoard_Backend',
+      demoUrl: 'https://leader-board-backend-hcv2.vercel.app/',
       highlights: [
         'Dual-repository full-stack architecture with decoupled Vite frontend and Express API backend.',
         'Dynamic ranking computation with real-time score adjustments and responsive data tables.',
@@ -289,6 +292,7 @@ export const portfolioData: ProfileData = {
       featured: false,
       tags: ['HTML5', 'CSS3 Animations', 'JavaScript', 'Audio Sync', 'Creative Web'],
       githubUrl: 'https://github.com/nikhil007-git/AOT',
+      demoUrl: 'https://aot-virid.vercel.app',
       highlights: [
         'Custom animation timelines crafted with performant CSS transitions.',
         'Interactive character and lore exploration panels with synchronized audio cues.',
@@ -330,6 +334,7 @@ export const portfolioData: ProfileData = {
       featured: false,
       tags: ['JavaScript', 'HTML5', 'CSS3', 'Form Validation', 'Accessibility'],
       githubUrl: 'https://github.com/nikhil007-git/bmi_cal',
+      demoUrl: 'https://bmi-cal-ebon.vercel.app',
       highlights: [
         'Dual unit support: seamless toggling between Metric (cm/kg) and Imperial (ft-in/lbs).',
         'Visual gauge scale illustrating WHO health classifications (Underweight to Obese).',
@@ -359,6 +364,90 @@ export const portfolioData: ProfileData = {
         futureImprovements: [
           'Add BMR (Basal Metabolic Rate) and daily caloric requirement calculator.',
           'Provide local storage history to track weight progression over time.'
+        ]
+      }
+    },
+    {
+      id: 'chess-multiplayer',
+      title: 'Chess Platform',
+      subtitle: 'Interactive Chess Game & Board Logic',
+      description: 'A responsive web chess platform featuring legal move validation, piece movement trajectories, interactive state management, and modern minimalist board presentation.',
+      category: 'Interactive',
+      featured: false,
+      tags: ['JavaScript', 'HTML5', 'CSS3', 'Chess Engine', 'Game Logic'],
+      githubUrl: 'https://github.com/nikhil007-git/chess',
+      demoUrl: 'https://chess-two-orpin.vercel.app',
+      highlights: [
+        'Real-time board state computation and legal tile highlight indicators.',
+        'Responsive board layout scaling fluidly across smartphone and desktop screens.',
+        'Captured piece tracking and turn indicator cues.'
+      ],
+      caseStudy: {
+        contextProblem: 'Building responsive board games in the browser often suffers from sluggish DOM re-rendering and clunky touch drag-and-drop behavior on mobile.',
+        goals: [
+          'Implement full 2D coordinate board state with turn validation and legal movement rules.',
+          'Provide an intuitive, fast touch interface for mobile and desktop players alike.',
+          'Keep bundle size minimal without heavy third-party gaming framework dependencies.'
+        ],
+        roleContribution: 'Solo developer — designed the board coordinate system, piece displacement rules, turn management, and responsive CSS styling.',
+        approachArchitecture: 'Modular state machine tracking matrix coordinates [x, y], validating piece movement vectors, and rendering declarative board updates.',
+        keyFeatures: [
+          'Interactive click-to-move tile selection with green movement indicator rings.',
+          'Turn-based state switching with active player indicators.',
+          'Captured piece display trays for both Black and White sides.',
+          'Clean dark board aesthetic designed for distraction-free focus.'
+        ],
+        techChoices: [
+          { tech: 'Modular JavaScript', reason: 'Direct DOM manipulation for instant piece animation without virtual DOM overhead.' },
+          { tech: 'CSS Flexbox & Grid', reason: 'Precise square aspect ratios maintained at any viewport width.' }
+        ],
+        challengesLearning: 'Ensuring touch events work reliably without triggering unwanted mobile screen scrolling.',
+        outcome: 'Deployed live playable chess board with zero latency.',
+        futureImprovements: [
+          'Incorporate Stockfish AI engine for solo player practice.',
+          'Add WebSocket multiplayer room pairing.'
+        ]
+      }
+    },
+    {
+      id: 'location-finder',
+      title: 'Location Finder by PIN Code',
+      subtitle: 'Real-Time Indian Postal Geolocation Service',
+      description: 'A responsive geographical lookup utility that resolves 6-digit Indian PIN codes into detailed district, state, and postal office metrics with instant client-side feedback.',
+      category: 'Utility & Web',
+      featured: false,
+      tags: ['JavaScript', 'Postal API', 'REST API', 'HTML5', 'CSS3'],
+      githubUrl: 'https://github.com/nikhil007-git/Location-finder-by-pincode',
+      demoUrl: 'https://location-finder-by-pincode.vercel.app',
+      highlights: [
+        'Instant PIN code resolution returning post office branch, delivery status, and district info.',
+        'Input debouncing and strict validation for 6-digit numerical codes.',
+        'Clean tabular results presentation with error recovery.'
+      ],
+      caseStudy: {
+        contextProblem: 'Finding accurate postal circle details and branch classifications across India typically requires slow government portals with poor mobile UI.',
+        goals: [
+          'Create a single-purpose, blazing fast PIN code resolver that answers queries in under 500ms.',
+          'Format postal office listings into clean, readable cards with delivery status.',
+          'Provide helpful error hints when invalid or non-existent PIN codes are entered.'
+        ],
+        roleContribution: 'Developer — built asynchronous API integration, validation filters, and responsive results grid.',
+        approachArchitecture: 'Lightweight client-side tool utilizing fetch with response caching, parsing Indian Postal API JSON feeds into organized UI elements.',
+        keyFeatures: [
+          'Instant 6-digit validation with numeric sanitization.',
+          'District, Division, State, and Circle hierarchy badges.',
+          'Branch post office directory listing delivery and non-delivery branches.',
+          'High-contrast accessible results table.'
+        ],
+        techChoices: [
+          { tech: 'Vanilla JavaScript', reason: 'Instant execution with zero overhead on low-end 4G mobile devices.' },
+          { tech: 'Postal REST API', reason: 'Reliable public geolocation data without requiring expensive commercial API keys.' }
+        ],
+        challengesLearning: 'Handling regions with dozens of branch post offices sharing a single PIN code while keeping the layout readable on small screens.',
+        outcome: 'Dependable utility deployed on Vercel helping students and workers verify postal locations.',
+        futureImprovements: [
+          'Add reverse lookup: search by city/district name to view corresponding PIN codes.',
+          'Integrate interactive OpenStreetMap embed for pinpoint navigation.'
         ]
       }
     }

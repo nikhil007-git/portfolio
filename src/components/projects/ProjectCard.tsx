@@ -91,10 +91,11 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-cyan-200 dark:border-cyan-500/40 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 hover:bg-cyan-100 dark:hover:bg-cyan-500/20 transition-colors"
-              title="View Live Demo"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-cyan-500/30 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-semibold transition-all hover:scale-[1.02]"
+              title="Open Live Deployment"
             >
-              <ExternalLink className="w-4 h-4" />
+              <span>Live Demo</span>
+              <ExternalLink className="w-3.5 h-3.5" />
             </a>
           )}
         </div>

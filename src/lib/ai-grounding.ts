@@ -29,7 +29,7 @@ VERIFIED FACTS:
 - Skills:
 ${portfolioData.skills.map(g => `  * ${g.category}: ${g.skills.map(s => `${s.name} (${s.stage})`).join(', ')}`).join('\n')}
 - Featured Projects:
-${portfolioData.projects.map(p => `  * ${p.title} (${p.category}): ${p.description} Tech: ${p.tags.join(', ')}. Repo: ${p.githubUrl || 'N/A'}. Key highlight: ${p.highlights[0]}`).join('\n')}
+${portfolioData.projects.map(p => `  * ${p.title} (${p.category}): ${p.description} Tech: ${p.tags.join(', ')}. Repo: ${p.githubUrl || 'N/A'}. Live Demo: ${p.demoUrl || 'N/A'}. Key highlight: ${p.highlights[0]}`).join('\n')}
 - Currently Exploring:
 ${portfolioData.currentlyExploring.map(e => `  * ${e.title}: ${e.description} (${e.status})`).join('\n')}
 `;
@@ -50,19 +50,19 @@ export const FALLBACK_FAQ: FallbackAnswer[] = [
   },
   {
     keywords: ['kisanmitra', 'farmer', 'agriculture', 'weather'],
-    answer: `KisanMitra is Nikhil's agricultural support platform built with React, Node.js, Express, and MongoDB. It connects farmers with localized weather forecasts, advisory tips for irrigation/harvest, and a direct query submission module. You can check the repository at: https://github.com/nikhil007-git/KisanMitra`
+    answer: `KisanMitra is Nikhil's agricultural support platform built with React, Node.js, Express, and MongoDB. It connects farmers with localized weather forecasts, advisory tips for irrigation/harvest, and a direct query submission module. Live Demo: https://kisan-mitra-brown.vercel.app | Repo: https://github.com/nikhil007-git/KisanMitra`
   },
   {
     keywords: ['canteen', 'vgi', 'food', 'order'],
-    answer: `The VGI Canteen System is a full-stack campus food ordering portal designed for Vishveshwarya Group of Institutions. Built with a decoupled React + Tailwind frontend and an Express + MongoDB backend, it enables students to order meals, track live queues, and receive digital pickup tokens, reducing cafeteria wait times.`
+    answer: `The VGI Canteen System is a full-stack campus food ordering portal designed for Vishveshwarya Group of Institutions. Built with a decoupled React + Tailwind frontend and an Express + MongoDB backend, it enables students to order meals, track live queues, and receive digital pickup tokens. Live Demo: https://vgi-canteen-frontend.vercel.app | Repos: https://github.com/nikhil007-git/Vgi-canteen-frontend and https://github.com/nikhil007-git/Vgi-canteen-backend`
   },
   {
     keywords: ['leaderboard', 'rank', 'contest', 'scoring'],
-    answer: `The Full-Stack LeaderBoard Platform is Nikhil's dynamic competitive scoring system built with React, Vite, Tailwind CSS, Node.js, Express, and MongoDB. It provides real-time ranking adjustments and data models for participants. Repositories: https://github.com/nikhil007-git/LeaderBoard_Frontend and https://github.com/nikhil007-git/LeaderBoard_Backend`
+    answer: `The Full-Stack LeaderBoard Platform is Nikhil's dynamic competitive scoring system built with React, Vite, Tailwind CSS, Node.js, Express, and MongoDB. Live Demo: https://leader-board-backend-hcv2.vercel.app/ | Repos: https://github.com/nikhil007-git/LeaderBoard_Frontend and https://github.com/nikhil007-git/LeaderBoard_Backend`
   },
   {
-    keywords: ['project', 'projects', 'work', 'built', 'portfolio'],
-    answer: `Nikhil has built several key engineering projects on his GitHub (https://github.com/nikhil007-git):\n1. KisanMitra (Agricultural advisory & farmer support platform)\n2. VGI Canteen System (Decoupled campus cafeteria ordering system)\n3. Full-Stack LeaderBoard Platform (Dynamic score tracking & competitive ranking)\n4. AOT Interactive Experience (High-performance web animation tribute)\n5. BMI Health Calculator (Accessible health utility with WHO scales)\nExplore the 'Projects' section for complete case studies!`
+    keywords: ['project', 'projects', 'work', 'built', 'portfolio', 'live', 'demo'],
+    answer: `Nikhil has built and deployed several key engineering projects:\n1. KisanMitra: https://kisan-mitra-brown.vercel.app\n2. VGI Canteen System: https://vgi-canteen-frontend.vercel.app\n3. Full-Stack LeaderBoard Platform: https://leader-board-backend-hcv2.vercel.app/\n4. Chess Multiplayer Platform: https://chess-two-orpin.vercel.app\n5. PIN Code Location Finder: https://location-finder-by-pincode.vercel.app\n6. AOT Experience: https://aot-virid.vercel.app\n7. BMI Health Calculator: https://bmi-cal-ebon.vercel.app\nAll source code is available on https://github.com/nikhil007-git!`
   },
   {
     keywords: ['education', 'college', 'university', 'study', 'degree', 'vgi', 'graduation'],
