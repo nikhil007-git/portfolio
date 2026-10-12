@@ -13,7 +13,7 @@ interface ThemeContextType {
 const defaultContext: ThemeContextType = {
   theme: 'dark',
   toggleTheme: () => {},
-  setTheme: () => {}
+  setTheme: () => {},
 };
 
 const ThemeContext = createContext<ThemeContextType>(defaultContext);
@@ -24,15 +24,18 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    const stored = localStorage.getItem('nk-portfolio-theme') as Theme | null;
-    if (stored === 'light' || stored === 'dark') {
-      setThemeState(stored);
-      applyTheme(stored);
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initial: Theme = prefersDark ? 'dark' : 'dark'; // Dark-first by default
-      setThemeState(initial);
-      applyTheme(initial);
+    try {
+      const stored = localStorage.getItem('nk-portfolio-theme') as Theme | null;
+      if (stored === 'light' || stored === 'dark') {
+        setThemeState(stored);
+        applyTheme(stored);
+      } else {
+        // Default to dark mode
+        setThemeState('dark');
+        applyTheme('dark');
+      }
+    } catch {
+      applyTheme('dark');
     }
   }, []);
 
@@ -41,15 +44,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (t === 'dark') {
       root.classList.add('dark');
       root.classList.remove('light');
+      root.style.colorScheme = 'dark';
     } else {
-      root.classList.add('light');
       root.classList.remove('dark');
+      root.classList.add('light');
+      root.style.colorScheme = 'light';
     }
   };
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem('nk-portfolio-theme', newTheme);
+    try {
+      localStorage.setItem('nk-portfolio-theme', newTheme);
+    } catch {}
     applyTheme(newTheme);
   };
 
@@ -60,7 +67,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
-      <div className={mounted ? '' : 'dark'}>{children}</div>
+      {children}
     </ThemeContext.Provider>
   );
 }

@@ -18,7 +18,7 @@ export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#090d16] text-slate-900 dark:text-slate-100 transition-colors duration-200">
       <Navbar onOpenChat={() => setIsChatOpen(true)} />
 
       <main className="flex-1">
