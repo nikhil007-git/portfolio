@@ -34,7 +34,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="case-study-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-950/70 dark:bg-black/80 backdrop-blur-sm animate-in fade-in duration-150"
     >
       <div 
         className="fixed inset-0" 
@@ -42,14 +42,14 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         aria-hidden="true" 
       />
 
-      <div className="relative w-full max-w-4xl max-h-[90vh] bg-slate-900 dark:bg-[#0b1120] light:bg-white border border-slate-800 dark:border-slate-800 light:border-slate-200 rounded-2xl shadow-2xl overflow-y-auto z-10 flex flex-col focus:outline-none">
+      <div className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl overflow-y-auto z-10 flex flex-col focus:outline-none">
         {/* Header Bar */}
-        <div className="sticky top-0 z-20 flex items-center justify-between p-4 sm:p-6 bg-slate-900/95 dark:bg-[#0b1120]/95 light:bg-white/95 backdrop-blur-md border-b border-slate-800 light:border-slate-200">
+        <div className="sticky top-0 z-20 flex items-center justify-between p-4 sm:p-6 bg-white/95 dark:bg-[#0c1222]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
           <div>
-            <span className="text-[11px] font-mono text-cyan-400 dark:text-cyan-400 light:text-cyan-700 uppercase tracking-wider block">
+            <span className="text-[11px] font-mono text-cyan-600 dark:text-cyan-400 uppercase tracking-wider font-semibold block">
               Case Study & Technical Architecture
             </span>
-            <h2 id="case-study-title" className="text-xl sm:text-2xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">
+            <h2 id="case-study-title" className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
               {project.title}
             </h2>
           </div>
@@ -57,25 +57,25 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             type="button"
             onClick={onClose}
             aria-label="Close case study"
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-100 dark:hover:text-white light:hover:text-slate-900 hover:bg-slate-800/80 light:hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500/40"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Content Body */}
-        <div className="p-4 sm:p-8 space-y-8 text-sm sm:text-base text-slate-300 dark:text-slate-300 light:text-slate-700">
+        <div className="p-4 sm:p-8 space-y-8 text-sm sm:text-base text-slate-700 dark:text-slate-300">
           {/* Quick Subtitle & Links */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-slate-950/40 dark:bg-slate-950/40 light:bg-slate-50 border border-slate-800/60 light:border-slate-200">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800/80">
             <div>
-              <p className="font-medium text-slate-200 dark:text-slate-200 light:text-slate-800">
+              <p className="font-semibold text-slate-900 dark:text-white">
                 {project.subtitle}
               </p>
               <div className="flex flex-wrap gap-1.5 mt-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-0.5 rounded text-xs font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/20"
+                    className="px-2 py-0.5 rounded text-xs font-mono bg-cyan-50 dark:bg-cyan-500/10 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/20"
                   >
                     {tag}
                   </span>
@@ -89,7 +89,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 transition-colors"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>{project.githubUrlSecondary ? 'Frontend Repo' : 'Repository'}</span>
@@ -101,7 +101,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   href={project.githubUrlSecondary}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 transition-colors"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>Backend Repo</span>
@@ -113,7 +113,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   href={project.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-900 dark:bg-cyan-500 hover:bg-slate-800 dark:hover:bg-cyan-400 text-white dark:text-slate-950 font-semibold transition-colors"
                 >
                   <span>Live Demo</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -124,26 +124,26 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* 1. Context & Problem */}
           <div>
-            <h3 className="text-base font-semibold text-slate-100 dark:text-slate-100 light:text-slate-900 flex items-center gap-2 mb-2">
-              <span className="text-cyan-400 font-mono text-xs">01</span> Context & Problem Statement
+            <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+              <span className="text-cyan-600 dark:text-cyan-400 font-mono text-xs">01</span> Context & Problem Statement
             </h3>
-            <p className="leading-relaxed bg-slate-900/40 p-4 rounded-xl border border-slate-800/40">
+            <p className="leading-relaxed bg-slate-50 dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800/60">
               {caseStudy.contextProblem}
             </p>
           </div>
 
           {/* 2. Goals */}
           <div>
-            <h3 className="text-base font-semibold text-slate-100 dark:text-slate-100 light:text-slate-900 flex items-center gap-2 mb-2">
-              <span className="text-cyan-400 font-mono text-xs">02</span> Engineering Goals
+            <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+              <span className="text-cyan-600 dark:text-cyan-400 font-mono text-xs">02</span> Engineering Goals
             </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {caseStudy.goals.map((goal, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-950/30 border border-slate-800/50 text-xs sm:text-sm"
+                  className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-50 dark:bg-slate-950/30 border border-slate-200 dark:border-slate-800/50 text-xs sm:text-sm"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <span>{goal}</span>
                 </li>
               ))}
@@ -153,19 +153,19 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* 3 & 4. Role, Contribution & Architecture */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-base font-semibold text-slate-100 dark:text-slate-100 light:text-slate-900 flex items-center gap-2 mb-2">
-                <span className="text-cyan-400 font-mono text-xs">03</span> Role & Contribution
+              <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+                <span className="text-cyan-600 dark:text-cyan-400 font-mono text-xs">03</span> Role & Contribution
               </h3>
-              <p className="p-4 rounded-xl bg-slate-900/40 border border-slate-800/40 text-xs sm:text-sm leading-relaxed">
+              <p className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/60 text-xs sm:text-sm leading-relaxed">
                 {caseStudy.roleContribution}
               </p>
             </div>
 
             <div>
-              <h3 className="text-base font-semibold text-slate-100 dark:text-slate-100 light:text-slate-900 flex items-center gap-2 mb-2">
-                <span className="text-cyan-400 font-mono text-xs">04</span> Architecture & Approach
+              <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+                <span className="text-cyan-600 dark:text-cyan-400 font-mono text-xs">04</span> Architecture & Approach
               </h3>
-              <p className="p-4 rounded-xl bg-slate-900/40 border border-slate-800/40 text-xs sm:text-sm leading-relaxed">
+              <p className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/60 text-xs sm:text-sm leading-relaxed">
                 {caseStudy.approachArchitecture}
               </p>
             </div>
@@ -173,16 +173,16 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* 5. Key Features */}
           <div>
-            <h3 className="text-base font-semibold text-slate-100 dark:text-slate-100 light:text-slate-900 flex items-center gap-2 mb-2">
-              <span className="text-cyan-400 font-mono text-xs">05</span> Key Features
+            <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+              <span className="text-cyan-600 dark:text-cyan-400 font-mono text-xs">05</span> Key Features
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {caseStudy.keyFeatures.map((feat, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-2 p-3 rounded-lg bg-slate-900/50 border border-slate-800/60 text-xs sm:text-sm"
+                  className="flex items-center gap-2 p-3 rounded-lg bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/60 text-xs sm:text-sm"
                 >
-                  <ArrowRight className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <ArrowRight className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0" />
                   <span>{feat}</span>
                 </div>
               ))}
@@ -191,19 +191,19 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* 6. Technology Choices & Rationale */}
           <div>
-            <h3 className="text-base font-semibold text-slate-100 dark:text-slate-100 light:text-slate-900 flex items-center gap-2 mb-2">
-              <span className="text-cyan-400 font-mono text-xs">06</span> Tech Stack Choices & Rationale
+            <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+              <span className="text-cyan-600 dark:text-cyan-400 font-mono text-xs">06</span> Tech Stack Choices & Rationale
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {caseStudy.techChoices.map((choice, idx) => (
                 <div
                   key={idx}
-                  className="p-3 rounded-lg bg-slate-950/40 border border-slate-800/60"
+                  className="p-3 rounded-lg bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800/60"
                 >
-                  <span className="font-semibold text-cyan-300 text-xs block mb-1">
+                  <span className="font-semibold text-cyan-700 dark:text-cyan-300 text-xs block mb-1">
                     {choice.tech}
                   </span>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                     {choice.reason}
                   </p>
                 </div>
@@ -214,21 +214,21 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* 7 & 8. Challenges & Verified Outcome */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-base font-semibold text-slate-100 dark:text-slate-100 light:text-slate-900 flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-amber-400" />
+              <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+                <AlertTriangle className="w-4 h-4 text-amber-500" />
                 <span>07 Challenges & Learnings</span>
               </h3>
-              <p className="p-4 rounded-xl bg-slate-900/40 border border-slate-800/40 text-xs sm:text-sm leading-relaxed">
+              <p className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/60 text-xs sm:text-sm leading-relaxed">
                 {caseStudy.challengesLearning}
               </p>
             </div>
 
             <div>
-              <h3 className="text-base font-semibold text-slate-100 dark:text-slate-100 light:text-slate-900 flex items-center gap-2 mb-2">
-                <Award className="w-4 h-4 text-cyan-400" />
+              <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+                <Award className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>08 Verified Outcome</span>
               </h3>
-              <p className="p-4 rounded-xl bg-slate-900/40 border border-slate-800/40 text-xs sm:text-sm leading-relaxed">
+              <p className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/60 text-xs sm:text-sm leading-relaxed">
                 {caseStudy.outcome}
               </p>
             </div>
@@ -236,17 +236,17 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* 9. Future Improvements */}
           <div>
-            <h3 className="text-base font-semibold text-slate-100 dark:text-slate-100 light:text-slate-900 flex items-center gap-2 mb-2">
-              <Compass className="w-4 h-4 text-violet-400" />
+            <h3 className="text-base font-semibold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+              <Compass className="w-4 h-4 text-violet-600 dark:text-violet-400" />
               <span>09 Roadmap & Future Enhancements</span>
             </h3>
             <ul className="space-y-2">
               {caseStudy.futureImprovements.map((imp, idx) => (
                 <li
                   key={idx}
-                  className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-950/30 border border-slate-800/40 text-xs sm:text-sm"
+                  className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 dark:bg-slate-950/30 border border-slate-200 dark:border-slate-800/40 text-xs sm:text-sm"
                 >
-                  <Lightbulb className="w-3.5 h-3.5 text-violet-400 shrink-0" />
+                  <Lightbulb className="w-3.5 h-3.5 text-violet-600 dark:text-violet-400 shrink-0" />
                   <span>{imp}</span>
                 </li>
               ))}
@@ -255,11 +255,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Modal Footer */}
-        <div className="sticky bottom-0 p-4 bg-slate-900/95 dark:bg-[#0b1120]/95 light:bg-white/95 border-t border-slate-800 light:border-slate-200 flex justify-end">
+        <div className="sticky bottom-0 p-4 bg-white/95 dark:bg-[#0c1222]/95 border-t border-slate-200 dark:border-slate-800 flex justify-end">
           <button
             type="button"
             onClick={onClose}
-            className="px-5 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
+            className="px-5 py-2 rounded-xl text-xs font-semibold bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white dark:text-slate-200 transition-colors"
           >
             Close Case Study
           </button>

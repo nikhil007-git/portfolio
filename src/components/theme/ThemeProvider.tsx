@@ -10,13 +10,13 @@ interface ThemeContextType {
   setTheme: (theme: Theme) => void;
 }
 
-const defaultThemeContext: ThemeContextType = {
+const defaultContext: ThemeContextType = {
   theme: 'dark',
   toggleTheme: () => {},
   setTheme: () => {}
 };
 
-const ThemeContext = createContext<ThemeContextType>(defaultThemeContext);
+const ThemeContext = createContext<ThemeContextType>(defaultContext);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('dark');
@@ -27,20 +27,30 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const stored = localStorage.getItem('nk-portfolio-theme') as Theme | null;
     if (stored === 'light' || stored === 'dark') {
       setThemeState(stored);
-      document.documentElement.classList.toggle('dark', stored === 'dark');
-      document.documentElement.classList.toggle('light', stored === 'light');
+      applyTheme(stored);
     } else {
-      setThemeState('dark');
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial: Theme = prefersDark ? 'dark' : 'dark'; // Dark-first by default
+      setThemeState(initial);
+      applyTheme(initial);
     }
   }, []);
+
+  const applyTheme = (t: Theme) => {
+    const root = document.documentElement;
+    if (t === 'dark') {
+      root.classList.add('dark');
+      root.classList.remove('light');
+    } else {
+      root.classList.add('light');
+      root.classList.remove('dark');
+    }
+  };
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
     localStorage.setItem('nk-portfolio-theme', newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-    document.documentElement.classList.toggle('light', newTheme === 'light');
+    applyTheme(newTheme);
   };
 
   const toggleTheme = () => {
@@ -57,5 +67,5 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-  return context || defaultThemeContext;
+  return context || defaultContext;
 }
