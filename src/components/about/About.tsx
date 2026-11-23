@@ -2,83 +2,101 @@
 
 import React from 'react';
 import { portfolioData } from '@/content/portfolioData';
-import { GraduationCap, Code, Compass, Layers } from 'lucide-react';
+import { 
+  Code, 
+  Layers, 
+  Terminal, 
+  Sparkles,
+  CheckCircle2,
+  ArrowUpRight
+} from 'lucide-react';
 
 export function About() {
-  const pillars = [
+  const highlights = [
     {
-      icon: GraduationCap,
-      title: 'Computer Science Core',
-      desc: 'Focused on algorithms, data structures, and database systems at Vishveshwarya Group of Institutions (VGI), Greater Noida.'
-    },
-    {
+      title: 'Full-Stack Web Engineering',
+      desc: 'Building responsive React & Next.js interfaces backed by Node.js, Express, and MongoDB.',
       icon: Code,
-      title: 'Full-Stack Engineering',
-      desc: 'Building responsive frontends in React & Next.js paired with structured RESTful APIs in Node.js, Express, and MongoDB.'
     },
     {
-      icon: Compass,
-      title: 'Applied AI Workflows',
-      desc: 'Experimenting hands-on with LLM integrations, prompt engineering, and intelligent web interfaces grounded in real data.'
-    },
-    {
+      title: 'Practical Problem Solving',
+      desc: 'Creating tools that solve real daily problems—from campus cafeteria queues to farmer advisories.',
       icon: Layers,
-      title: 'Real-World Focus',
-      desc: 'Passionate about engineering software that solves practical daily problems—like campus food queue management and farmer advisories.'
+    },
+    {
+      title: 'CS Core & Algorithms',
+      desc: 'Consistent problem solving on LeetCode and GeeksforGeeks, studying B.Tech CSE at VGI Greater Noida.',
+      icon: Terminal,
     }
   ];
 
   return (
     <section id="about" className="py-20 border-t border-slate-200 dark:border-slate-800/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-3">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-3">
           <div>
-            <span className="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold block mb-2">
-              Background & Approach
+            <span className="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold block mb-1">
+              Introduction
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-              About Nikhil
+              About Me
             </h2>
           </div>
-          <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm">
-            Turning software foundations into responsive, intuitive digital tools.
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-sm">
+            Turning software foundations into responsive, reliable digital tools.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Narrative Column */}
-          <div className="lg:col-span-7 space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-            {portfolioData.bio.map((paragraph, idx) => (
-              <div 
-                key={idx} 
-                className="p-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/80 shadow-2xs"
-              >
-                <p>{paragraph}</p>
-              </div>
-            ))}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          {/* Main Bio Card */}
+          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-xs">
+            <div className="space-y-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold">
+                Background
+              </span>
+              <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                I&apos;m an undergraduate Computer Science & Engineering student at <strong className="text-slate-900 dark:text-white">Vishveshwarya Group of Institutions (VGI), Greater Noida</strong>. I enjoy crafting full-stack web products—from interactive user interfaces to robust RESTful backends.
+              </p>
+              <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                Whether streamlining college cafeteria orders or helping farmers access weather advisories, I focus on writing clean, maintainable code and building practical software that works seamlessly on every device.
+              </p>
+            </div>
+
+            <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap gap-4 text-xs font-mono text-slate-600 dark:text-slate-400">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                8+ Live Projects
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-cyan-500" />
+                LeetCode & GFG Practice
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-violet-500" />
+                B.Tech CSE (2025–2029)
+              </span>
+            </div>
           </div>
 
-          {/* Pillars Grid */}
-          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
-            {pillars.map((pillar) => {
-              const Icon = pillar.icon;
+          {/* 3 Compact Feature Cards */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-3">
+            {highlights.map((item, idx) => {
+              const Icon = item.icon;
               return (
                 <div
-                  key={pillar.title}
-                  className="p-4 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/50 hover:border-cyan-500/40 transition-all duration-200"
+                  key={idx}
+                  className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 hover:border-cyan-500/30 transition-all flex items-start gap-4 shadow-xs"
                 >
-                  <div className="flex items-start gap-3.5">
-                    <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 shrink-0">
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-normal">
-                        {pillar.desc}
-                      </p>
-                    </div>
+                  <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 shrink-0">
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
               );
