@@ -3,15 +3,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { STARTER_QUESTIONS } from '@/lib/ai-grounding';
 import { 
-  Sparkles, 
   X, 
   Send, 
   Bot, 
   User, 
   RefreshCw, 
   ShieldCheck, 
-  HelpCircle,
-  ExternalLink 
+  HelpCircle
 } from 'lucide-react';
 
 interface ChatMessage {
@@ -123,7 +121,7 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="ask-nikhil-ai-title"
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200"
     >
       <div 
         className="fixed inset-0" 
@@ -131,22 +129,22 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
         aria-hidden="true" 
       />
 
-      <div className="relative w-full sm:max-w-lg h-[85vh] sm:h-[620px] bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col overflow-hidden z-10">
+      <div className="relative w-full sm:max-w-lg h-[85vh] sm:h-[620px] bg-white dark:bg-[#121215] border border-zinc-200 dark:border-zinc-800 rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col overflow-hidden z-10">
         {/* Header */}
-        <div className="p-4 bg-white/95 dark:bg-[#0c1222]/95 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <div className="p-4 bg-white/95 dark:bg-[#121215]/95 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/20 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400">
+            <div className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100">
               <Bot className="w-5 h-5" />
             </div>
             <div>
-              <h2 id="ask-nikhil-ai-title" className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
+              <h2 id="ask-nikhil-ai-title" className="text-sm font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
                 <span>Ask Nikhil AI</span>
-                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 font-semibold">
-                  Grounded
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-semibold">
+                  Verified
                 </span>
               </h2>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                Answers strictly from published portfolio data
+              <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
+                Answers strictly from verified portfolio facts
               </p>
             </div>
           </div>
@@ -155,7 +153,7 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
             type="button"
             onClick={onClose}
             aria-label="Close AI Assistant"
-            className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-lg text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -169,7 +167,7 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
               className={`flex gap-2.5 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               {msg.sender === 'assistant' && (
-                <div className="w-7 h-7 rounded-lg bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0 mt-0.5">
                   <Bot className="w-4 h-4" />
                 </div>
               )}
@@ -177,26 +175,26 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
               <div
                 className={`max-w-[85%] rounded-2xl p-3 sm:p-3.5 ${
                   msg.sender === 'user'
-                    ? 'bg-cyan-500 text-slate-950 font-medium rounded-tr-xs shadow-xs'
-                    : 'bg-slate-100 dark:bg-slate-950/70 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800/80 rounded-tl-xs'
+                    ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-medium rounded-tr-xs shadow-xs'
+                    : 'bg-zinc-100 dark:bg-zinc-900/80 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-800 rounded-tl-xs'
                 }`}
               >
                 <div className="whitespace-pre-wrap leading-relaxed">
                   {msg.text}
                 </div>
-                <div className="flex items-center justify-between gap-2 mt-1.5 pt-1 border-t border-slate-200 dark:border-slate-800/40 text-[10px] text-slate-500 dark:text-slate-400 font-mono">
+                <div className="flex items-center justify-between gap-2 mt-1.5 pt-1 border-t border-zinc-200 dark:border-zinc-800/40 text-[10px] text-zinc-500 dark:text-zinc-400 font-mono">
                   <span>{msg.timestamp}</span>
                   {msg.grounded && (
-                    <span className="flex items-center gap-1 text-cyan-600 dark:text-cyan-400 font-semibold">
+                    <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-semibold">
                       <ShieldCheck className="w-3 h-3" />
-                      Portfolio Verified
+                      Verified
                     </span>
                   )}
                 </div>
               </div>
 
               {msg.sender === 'user' && (
-                <div className="w-7 h-7 rounded-lg bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-7 h-7 rounded-lg bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0 mt-0.5">
                   <User className="w-4 h-4" />
                 </div>
               )}
@@ -205,11 +203,11 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
 
           {loading && (
             <div className="flex gap-2.5 justify-start">
-              <div className="w-7 h-7 rounded-lg bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0 mt-0.5">
                 <Bot className="w-4 h-4" />
               </div>
-              <div className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80 text-slate-600 dark:text-slate-400 flex items-center gap-2 text-xs font-mono">
-                <RefreshCw className="w-3.5 h-3.5 animate-spin text-cyan-500 dark:text-cyan-400" />
+              <div className="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 flex items-center gap-2 text-xs font-mono">
+                <RefreshCw className="w-3.5 h-3.5 animate-spin text-zinc-500" />
                 <span>Checking portfolio verified facts...</span>
               </div>
             </div>
@@ -219,9 +217,9 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
         </div>
 
         {/* Suggested Starter Questions */}
-        <div className="p-2.5 bg-slate-50/80 dark:bg-slate-950/40 border-t border-slate-200 dark:border-slate-800/60">
-          <div className="flex items-center gap-1 text-[11px] font-mono text-slate-500 dark:text-slate-400 mb-1.5 px-1">
-            <HelpCircle className="w-3 h-3 text-cyan-500 dark:text-cyan-400" />
+        <div className="p-2.5 bg-zinc-50 dark:bg-zinc-950/60 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="flex items-center gap-1 text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mb-1.5 px-1">
+            <HelpCircle className="w-3 h-3 text-zinc-400" />
             <span>Suggested questions:</span>
           </div>
           <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
@@ -231,7 +229,7 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
                 type="button"
                 onClick={() => handleSend(q)}
                 disabled={loading}
-                className="whitespace-nowrap px-2.5 py-1 rounded-lg text-[11px] bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 transition-colors focus:outline-none focus:ring-1 focus:ring-cyan-500 shrink-0 cursor-pointer"
+                className="whitespace-nowrap px-2.5 py-1 rounded-lg text-[11px] bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 transition-colors focus:outline-none shrink-0 cursor-pointer"
               >
                 {q}
               </button>
@@ -240,7 +238,7 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
         </div>
 
         {/* Input form */}
-        <div className="p-3 sm:p-4 bg-white dark:bg-[#0c1222] border-t border-slate-200 dark:border-slate-800">
+        <div className="p-3 sm:p-4 bg-white dark:bg-[#121215] border-t border-zinc-200 dark:border-zinc-800">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -256,18 +254,18 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
               disabled={loading}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about Nikhil's skills, projects, or degree..."
-              className="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-950/60 text-slate-900 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 disabled:opacity-50"
+              className="flex-1 px-3.5 py-2.5 rounded-xl border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 text-zinc-900 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={!input.trim() || loading}
-              className="p-2.5 rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 disabled:opacity-50 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 shrink-0 cursor-pointer"
+              className="p-2.5 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 disabled:opacity-50 transition-colors focus:outline-none shrink-0 cursor-pointer"
             >
               <Send className="w-4 h-4" />
             </button>
           </form>
-          <div className="flex items-center justify-between text-[10px] font-mono text-slate-500 dark:text-slate-400 mt-2 px-1">
-            <span>Free-tier conscious • No hallucinated metrics</span>
+          <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 dark:text-zinc-400 mt-2 px-1">
+            <span>Portfolio Verified Assistant</span>
             <span>{input.length}/500</span>
           </div>
         </div>

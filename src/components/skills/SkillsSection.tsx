@@ -2,99 +2,83 @@
 
 import React from 'react';
 import { 
-  Code, 
+  Layout, 
   Server, 
   Database, 
-  Wrench, 
-  Cpu, 
-  Layers,
-  Sparkles
+  Terminal,
+  Cpu
 } from 'lucide-react';
 
-interface SkillItem {
-  name: string;
-  highlight?: boolean;
-}
-
-interface SkillCard {
-  title: string;
-  category: string;
-  icon: React.ElementType;
-  skills: SkillItem[];
-}
-
 export function SkillsSection() {
-  const skillCards: SkillCard[] = [
+  const skillCards = [
     {
       title: 'Frontend Development',
-      category: 'UI & Web',
-      icon: Code,
+      category: 'Client & UI',
+      icon: Layout,
       skills: [
         { name: 'React', highlight: true },
         { name: 'Next.js', highlight: true },
-        { name: 'TypeScript', highlight: true },
         { name: 'JavaScript (ES6+)', highlight: true },
+        { name: 'TypeScript', highlight: true },
         { name: 'Tailwind CSS', highlight: true },
-        { name: 'HTML5 & Semantic UI' },
-        { name: 'CSS3 & Responsive Design' }
+        { name: 'HTML5 & Semantic Markup', highlight: false },
+        { name: 'CSS3 & Modern Layouts', highlight: false },
       ]
     },
     {
       title: 'Backend & APIs',
-      category: 'Server Logic',
+      category: 'Server & Logic',
       icon: Server,
       skills: [
         { name: 'Node.js', highlight: true },
         { name: 'Express.js', highlight: true },
-        { name: 'RESTful API Design', highlight: true },
-        { name: 'Middleware Architecture' },
-        { name: 'JWT & Authentication Basics' },
-        { name: 'API Error Handling' }
+        { name: 'REST API Design', highlight: true },
+        { name: 'Middleware Architecture', highlight: false },
+        { name: 'Authentication Basics', highlight: false },
       ]
     },
     {
       title: 'Databases & Languages',
-      category: 'Core & Data',
+      category: 'Data & Core',
       icon: Database,
       skills: [
         { name: 'MongoDB', highlight: true },
         { name: 'MySQL', highlight: true },
-        { name: 'Java', highlight: true },
         { name: 'Python', highlight: true },
-        { name: 'C / C++' },
-        { name: 'SQL Querying' },
-        { name: 'Mongoose ODM' }
+        { name: 'Java', highlight: true },
+        { name: 'C / C++', highlight: false },
+        { name: 'Mongoose ODM', highlight: false },
       ]
     },
     {
       title: 'DevOps & AI Workflows',
-      category: 'Tools & Modern Tech',
+      category: 'Tools & Ecosystem',
       icon: Cpu,
       skills: [
         { name: 'Git & GitHub', highlight: true },
         { name: 'Vercel Deployment', highlight: true },
-        { name: 'Postman (API Testing)', highlight: true },
+        { name: 'Postman', highlight: false },
+        { name: 'VS Code', highlight: false },
         { name: 'LLM API Integration', highlight: true },
-        { name: 'Prompt Engineering' },
-        { name: 'npm & Package Workflows' }
+        { name: 'Prompt Engineering', highlight: false },
       ]
     }
   ];
 
   return (
-    <section id="skills" className="py-20 border-t border-slate-200 dark:border-slate-800/80">
+    <section id="skills" className="py-20 border-t border-zinc-200 dark:border-zinc-800/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-3">
           <div>
-            <span className="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold block mb-1">
+            <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold block mb-1">
               Tech Stack
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
               Skills & Technologies
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-sm">
+          <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-sm">
             Core tools and modern libraries I use to build full-stack web products.
           </p>
         </div>
@@ -106,18 +90,18 @@ export function SkillsSection() {
             return (
               <div
                 key={card.title}
-                className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 hover:border-slate-300 dark:hover:border-cyan-500/30 transition-all shadow-xs"
+                className="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all shadow-xs"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2.5">
-                    <div className="p-2 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
+                    <div className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <h3 className="font-bold text-base text-slate-900 dark:text-white">
+                    <h3 className="font-bold text-base text-zinc-900 dark:text-white">
                       {card.title}
                     </h3>
                   </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400">
                     {card.category}
                   </span>
                 </div>
@@ -128,8 +112,8 @@ export function SkillsSection() {
                       key={skill.name}
                       className={`inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-xl border transition-colors ${
                         skill.highlight
-                          ? 'bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-cyan-500/50'
-                          : 'bg-white dark:bg-slate-900/40 border-slate-200/80 dark:border-slate-800 text-slate-600 dark:text-slate-400'
+                          ? 'bg-zinc-50 dark:bg-zinc-800/80 border-zinc-200 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 hover:border-zinc-400 dark:hover:border-zinc-600'
+                          : 'bg-white dark:bg-zinc-900/40 border-zinc-200/80 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400'
                       }`}
                     >
                       {skill.name}

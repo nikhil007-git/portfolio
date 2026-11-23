@@ -20,19 +20,19 @@ export function ProjectsSection() {
   });
 
   return (
-    <section id="projects" className="py-20 border-t border-slate-200 dark:border-slate-800/80">
+    <section id="projects" className="py-20 border-t border-zinc-200 dark:border-zinc-800/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-3">
           <div>
-            <span className="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold block mb-2">
+            <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold block mb-2">
               Featured Work
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
               Selected Projects
             </h2>
           </div>
-          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm">
+          <p className="text-xs text-zinc-500 dark:text-zinc-400 max-w-sm">
             Practical software built for agricultural support, campus dining, and web utilities.
           </p>
         </div>
@@ -46,10 +46,10 @@ export function ProjectsSection() {
                 key={filter}
                 type="button"
                 onClick={() => setSelectedFilter(filter)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/40 ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 ${
                   isSelected
-                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-semibold shadow-xs'
-                    : 'bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 font-semibold shadow-xs'
+                    : 'bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-900 dark:hover:text-white'
                 }`}
               >
                 {filter === 'Featured' ? (

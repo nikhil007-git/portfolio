@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Project } from '@/types/portfolio';
-import { ExternalLink, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, ExternalLink } from 'lucide-react';
 import { GithubIcon } from '@/components/icons/BrandIcons';
 import { ProjectThumbnail } from './ProjectThumbnail';
 
@@ -13,7 +13,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, onSelect }: ProjectCardProps) {
   return (
-    <div className="flex flex-col justify-between rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 hover:border-cyan-500/40 dark:hover:border-cyan-500/50 transition-all duration-200 shadow-xs hover:shadow-md group overflow-hidden">
+    <div className="flex flex-col justify-between rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200 shadow-xs hover:shadow-md group overflow-hidden">
       <div>
         {/* Visual Mockup Banner */}
         <div 
@@ -31,24 +31,24 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
         <div className="p-5">
           {/* Header Row */}
           <div className="flex items-center justify-between gap-2 mb-2">
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300">
               {project.category}
             </span>
             {project.featured && (
-              <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full border border-violet-200 dark:border-violet-500/30 bg-violet-50 dark:bg-violet-500/10 text-violet-700 dark:text-violet-300 font-medium">
-                <Sparkles className="w-2.5 h-2.5 text-violet-500" />
+              <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full border border-amber-500/20 bg-amber-500/10 text-amber-700 dark:text-amber-400 font-medium">
+                <Sparkles className="w-2.5 h-2.5 text-amber-500" />
                 Featured
               </span>
             )}
           </div>
 
           {/* Project Title */}
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors mb-2">
+          <h3 className="text-lg font-bold text-zinc-900 dark:text-white group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors mb-2">
             {project.title}
           </h3>
 
           {/* Minimal 1-Sentence Summary */}
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-2">
+          <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4 line-clamp-2">
             {project.description}
           </p>
 
@@ -57,7 +57,7 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
             {project.tags.slice(0, 4).map((tag) => (
               <span
                 key={tag}
-                className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60"
+                className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700/60"
               >
                 {tag}
               </span>
@@ -67,11 +67,11 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
       </div>
 
       {/* Action Row */}
-      <div className="px-5 pb-5 pt-2 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between gap-2">
+      <div className="px-5 pb-5 pt-2 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between gap-2">
         <button
           type="button"
           onClick={() => onSelect(project)}
-          className="inline-flex items-center gap-1 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors focus:outline-none cursor-pointer"
+          className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors focus:outline-none cursor-pointer"
         >
           <span>Case Study</span>
           <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
@@ -83,7 +83,7 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-950 dark:hover:text-white transition-colors"
+              className="p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-950 dark:hover:text-white transition-colors"
               title="View GitHub Repository"
             >
               <GithubIcon className="w-3.5 h-3.5" />
@@ -94,7 +94,7 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-600 dark:bg-cyan-500 hover:bg-cyan-500 dark:hover:bg-cyan-400 text-white dark:text-slate-950 text-xs font-semibold shadow-xs transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-100 text-xs font-semibold shadow-xs transition-all hover:scale-[1.02]"
               title="Open Live Website"
             >
               <span>Live Demo</span>
