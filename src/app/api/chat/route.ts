@@ -2,13 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { AI_SYSTEM_PROMPT, FALLBACK_FAQ } from '@/lib/ai-grounding';
 import { portfolioData } from '@/content/portfolioData';
 
-// Simple in-memory rate limiter: max 10 requests per minute per IP
+// Simple in-memory rate limiter: max 25 requests per minute per IP
 const ipRequests = new Map<string, { count: number; resetTime: number }>();
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const windowMs = 60 * 1000;
-  const maxRequests = 12;
+  const maxRequests = 25;
 
   const record = ipRequests.get(ip);
   if (!record || now > record.resetTime) {
@@ -50,59 +50,77 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const lowerQuery = query.toLowerCase();
-
-    // Check if an external Gemini API key is configured
+    // Read GEMINI_API_KEY from environment variables (e.g., .env.local or Vercel Environment Variables)
     const apiKey = process.env.GEMINI_API_KEY;
-    if (apiKey) {
-      try {
-        const response = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              contents: [
-                {
-                  role: 'user',
-                  parts: [
-                    { text: AI_SYSTEM_PROMPT },
-                    { text: `Visitor Question: ${query}` }
-                  ]
-                }
-              ],
-              generationConfig: {
-                temperature: 0.2,
-                maxOutputTokens: 500
-              }
-            })
-          }
-        );
 
-        if (response.ok) {
-          const data = await response.json();
-          const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-          if (generatedText) {
-            return NextResponse.json({
-              reply: generatedText,
-              grounded: true,
-              source: 'gemini'
-            });
+    if (apiKey) {
+      const models = ['gemini-2.5-flash', 'gemini-flash-latest'];
+
+      for (const model of models) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+          const response = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                contents: [
+                  {
+                    role: 'user',
+                    parts: [
+                      { text: AI_SYSTEM_PROMPT },
+                      { text: `Visitor Question: ${query}` }
+                    ]
+                  }
+                ],
+                generationConfig: {
+                  temperature: 0.2,
+                  maxOutputTokens: 600,
+                  thinkingConfig: { thinkingBudget: 0 }
+                }
+              }),
+              signal: controller.signal
+            }
+          );
+
+          clearTimeout(timeoutId);
+
+          if (response.ok) {
+            const data = await response.json();
+            const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (generatedText && generatedText.trim().length > 0) {
+              return NextResponse.json({
+                reply: generatedText.trim(),
+                grounded: true,
+                source: 'gemini'
+              });
+            }
           }
+        } catch {
+          // If network timeout or remote API fails, try next model or drop down to local grounded knowledge base
+          continue;
         }
-      } catch {
-        // Fallback to grounded knowledge base below if remote call fails
       }
     }
 
-    // Grounded deterministic matcher based on published portfolio facts
+    // Grounded deterministic matcher based on verified portfolio facts
+    const cleanedQuery = query.toLowerCase().replace(/[^\w\s]/g, ' ');
+    const queryWords = cleanedQuery.split(/\s+/).filter((w: string) => w.length > 0);
+
     let bestMatch: { score: number; answer: string } = { score: 0, answer: '' };
 
     for (const item of FALLBACK_FAQ) {
       let score = 0;
       for (const kw of item.keywords) {
-        if (lowerQuery.includes(kw)) {
-          score += kw.length >= 6 ? 5 : kw.length >= 4 ? 3 : 1;
+        const lowerKw = kw.toLowerCase();
+        if (cleanedQuery.includes(lowerKw)) {
+          // Exact substring phrase match
+          score += lowerKw.length >= 6 ? 6 : lowerKw.length >= 4 ? 4 : 2;
+        } else if (queryWords.includes(lowerKw)) {
+          score += 3;
         }
       }
       if (score > bestMatch.score) {
@@ -119,7 +137,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Default polite safe answer when no exact match is found
-    const defaultResponse = `I want to make sure you get accurate information about Nikhil! While I don't see a specific answer to that in his published portfolio, Nikhil is always happy to connect.\n\n• Email: ${portfolioData.email}\n• LinkedIn: https://linkedin.com/in/nikhil-kumar-0n7\n• GitHub: https://github.com/nikhil007-git\n\nFeel free to explore his featured projects like KisanMitra and VGI Canteen in the projects section!`;
+    const defaultResponse = `Hello! Nikhil Kumar is a Full-Stack Developer and B.Tech CSE student (2025–2029) at VGI Greater Noida. He builds web applications with React, Next.js, Node.js, and modern databases.\n\n• Top Projects: KisanMitra (https://kisan-mitra-brown.vercel.app), VGI Canteen (https://vgi-canteen-frontend.vercel.app)\n• GitHub: https://github.com/nikhil007-git\n• LinkedIn: https://linkedin.com/in/nikhil-kumar-0n7\n• Email: ${portfolioData.email}\n\nFeel free to ask about his technical stack, live projects, or academic background!`;
 
     return NextResponse.json({
       reply: defaultResponse,
@@ -128,7 +146,7 @@ export async function POST(req: NextRequest) {
     });
   } catch {
     return NextResponse.json(
-      { error: 'An unexpected error occurred while processing your question. Please try again or email Nikhil directly.' },
+      { error: 'An unexpected error occurred while processing your question. Please try again or email Nikhil directly at nikhil9508821695@gmail.com.' },
       { status: 500 }
     );
   }
