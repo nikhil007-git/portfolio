@@ -45,8 +45,12 @@ export function Navbar({ onOpenChat }: NavbarProps) {
           className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 rounded-xl p-1"
           aria-label="Nikhil Kumar"
         >
-          <div className="w-9 h-9 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 font-bold text-sm flex items-center justify-center tracking-tight shadow-sm group-hover:scale-105 transition-transform">
-            NK
+          <div className="w-9 h-9 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-700 shadow-sm group-hover:scale-105 transition-transform shrink-0 bg-zinc-100 dark:bg-zinc-800">
+            <img
+              src="/profile.jpg"
+              alt="Nikhil Kumar"
+              className="w-full h-full object-cover object-top"
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-semibold text-sm sm:text-base text-zinc-900 dark:text-white tracking-tight">

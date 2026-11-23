@@ -154,8 +154,16 @@ export function Hero({ onOpenChat }: HeroProps) {
 
               {/* Developer identity summary */}
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-12 h-12 rounded-xl bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 font-bold text-lg flex items-center justify-center shadow-sm">
-                  NK
+                <div className="relative shrink-0">
+                  <img
+                    src="/profile.jpg"
+                    alt="Nikhil Kumar"
+                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover object-top border-2 border-zinc-200 dark:border-zinc-700 shadow-sm"
+                  />
+                  <span 
+                    className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-[#121215]" 
+                    title="Active & Available" 
+                  />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">

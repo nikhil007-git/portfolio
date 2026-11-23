@@ -133,8 +133,12 @@ export function AskNikhilAI({ isOpen, onClose }: AskNikhilAIProps) {
         {/* Header */}
         <div className="p-4 bg-white/95 dark:bg-[#121215]/95 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100">
-              <Bot className="w-5 h-5" />
+            <div className="w-9 h-9 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-700 shrink-0">
+              <img
+                src="/profile.jpg"
+                alt="Nikhil Kumar"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div>
               <h2 id="ask-nikhil-ai-title" className="text-sm font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
